@@ -3,20 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<scr>, initial-scale=1.0">
+    <meta name="viewport" content="width=1" scr= "initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <script>
         //Create variable for user input
         //Create variable for computer play
-        //Create random generator for computer 
-        //Create statement for rules 
-            //  If rock and paper, paper wins
-            //  If rock and scissors, rock wins
-            //  If paper and scissors, scossors wins
-        //Create counter to tracj best out of 5 games
-        //Create display, "You win"/ "You lose"
+        //Create function for computerPlay that returns rock, paper or scissors randomly 
+        function computerChoice() {
+            function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+            }
+        return getRandomInt(3);
+        }
+        function computerPlay () { 
+            play = computerChoice ()
+            if (play == 0) {
+            let choice = "Rock!"
+            return choice;
+            }
+            else if (play == 1) {
+            let choice = "Paper!"
+            return choice;
+            }
+            else {
+            let choice = "Scissors!"
+            return choice;
+            }
+        }
+        console.log(computerPlay());
+        //Create a function that plays a single round that takes the playerSelection and computerSelection
+        // as parameters and returns a string that declares the winner
+            //Make playerSelection parameter caseinsensitive
+        //  Write a function called game that keeps score for 5 rounds and declares a winner
     </script>
 </body>
 </html>
