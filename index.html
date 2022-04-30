@@ -8,35 +8,82 @@
 </head>
 <body>
     <script>
-        //Create variable for user input
-        //Create variable for computer play
-        //Create function for computerPlay that returns rock, paper or scissors randomly 
-        function computerChoice() {
-            function getRandomInt(max) {
-            return Math.floor(Math.random() * max);
+
+        function game (){
+            for (i = 0; i < 5; i++) {
+                console.log(i);
+                computerPlay();
+                decision();
+                if (playerSelection) {
+                    let playerscore = 0;
+                    playerScore++;
+                }
+                else {
+                    let computerScore = 0;
+                    computerScore++;
+                }
             }
-        return getRandomInt(3);
         }
+        game ();
+    
+        //Create function for computerPlay that returns rock, paper or scissors randomly 
         function computerPlay () { 
+            function computerChoice() {
+                function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+                }
+                return getRandomInt(3);
+            }
             play = computerChoice ()
             if (play == 0) {
-            let choice = "Rock!"
+            let choice = "Rock"
             return choice;
             }
             else if (play == 1) {
-            let choice = "Paper!"
+            let choice = "Paper"
             return choice;
             }
             else {
-            let choice = "Scissors!"
+            let choice = "Scissors"
             return choice;
             }
         }
-        console.log(computerPlay());
+        
         //Create a function that plays a single round that takes the playerSelection and computerSelection
         // as parameters and returns a string that declares the winner
             //Make playerSelection parameter caseinsensitive
+        function decision (playerSelection, computerSelection){
+            let playerSelection = prompt("Choose Rock, Paper or Scissors", '')
+            let computerSelection = computerPlay();
+            console.log(computerSelection);
+            if (playerSelection == "Rock" && computerSelection == "Scissors" ||
+                playerSelection == "Scissors" && computerSelection == "Paper" ||
+                playerSelection == "Paper" && computerSelection == "Rock") {
+                console.log("You Won!");
+                return true;
+                }
+            else if (computerSelection == "Rock" && playerSelection == "Scissors" ||
+                computerSelection == "Scissors" && playerSelection == "Paper" ||
+                computerSelection == "Paper" && playerSelection == "Rock") {
+                console.log("You Lose!");
+                return true;
+            }
+            else {
+                console.log("Draw");
+            }
+        }
         //  Write a function called game that keeps score for 5 rounds and declares a winner
+        //function scoreGame () {
+           // for (let i = 1; i <= 5; i++) {
+              //  if (player) {
+                 //   let playerScore = 1;
+             //   }
+              //  else {
+              //      let computerScore = 1;
+              //  }
+          //  }
+       // }
+       // scoreGame();
     </script>
 </body>
 </html>
