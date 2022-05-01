@@ -9,66 +9,87 @@
 <body>
     <script>
 /*Need function getPlayers to get player's move*/
-       // function getPlayers () {
+      
+      function getPlayers () {
 /*Need prompt, "Choose Rock, Paper or Scissors."*/
-           //let playersChoice = prompt('Choose Rock, Paper, or scissors','',);
+         let playersChoice = prompt('Choose Rock, Paper, or scissors','',);
 /*function to make playersMove Case insensitive*/
 /* When player enters string, capitalize first letter, lower case other letters in string*/
-            //function caseInsensitive (string) {
-        //        let newString = string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-         //       return newString;
-        //    }
- /*store new variable as playersMove */           
-         //   let playersMove = caseInsensitive(playersChoice);
-         //   console.log(`You chose ${playersMove}`);
-        //}
-       
+         function caseInsensitive (string) {
+                let newString = string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+                return newString;
+            }
+//store new variable as playersMove           
+          playersMove = caseInsensitive(playersChoice);
+            console.log(`You chose ${playersMove}`);
+        }
+     
 //Need function getComputers to get computer's move
-      //  function getComputers () {
+      let computersMove;
+      function getComputers () {
 // Random number generator from 0-2
-          //  function getRandom (min,max) {
-          //      return Math.floor(Math.random() * (max - min + 1) + min)
-          //  }
+          function getRandom (min,max) {
+                return Math.floor(Math.random() * (max - min + 1) + min)
+            }
 //store in variable called random
-           // let random = getRandom (0,2);
+            let random = getRandom (0,2);
 //Convert random number to string, "Rock", "Paper", or "Scissors", store in variable
-         //   let computersMove ="";
-          //  if (random == 0) {
-            //     computersMove = "Rock";
-          //  }
-         //   else if (random == 1) {
-          //       computersMove = "Paper";
-          //  }
-           // else {
-           //      computersMove = "Scissors";
-           // }
-           // console.log(computersMove)
-      //  }  
-/*Need function compareMove to compare computer's move with player's move*/
-//Switch statement with && operator
+           computersMove ="";
+            if (random == 0) {
+                 computersMove = "Rock";
+            }
+            else if (random == 1) {
+                 computersMove = "Paper";
+            }
+            else {
+                 computersMove = "Scissors";
+            }
+            console.log(`Computer chose ${computersMove}`);
+        }  
+/*Need function getDecision to compare computer's move with player's move*/
 
-            function getDecision () {
-                let playersMove = "Paper";
-                let computersMove = "Rock";
-                if (playersMove == "Paper" && computersMove == "Rock" ||  
-                    playersMove == "Rock" && computersMove == "Scissors"  ||
-                    playersMove == "Scissors" && computersMove == "Paper") {
+            function getDecision (string1,string2) {
+                
+                if ((string1 === "Paper" && string2 === "Rock") ||  
+                    (string1 === "Rock" && string2 === "Scissors")  ||
+                    (string1 === "Scissors" && string2 === "Paper")) {
                     console.log("You win ");
+                    let score = 1;
 
                     }
-                else {
+                else if ((string2 === "Paper" && string1 === "Rock") ||  
+                    (string2 === "Rock" && string1 === "Scissors")  ||
+                    (string2 === "Scissors" && string1 === "Paper")) {
+
                     console.log("You lose")
+                    let score = 1;
+                }
+                else {
+                    console.log("It's a draw")
                 }
 
            }
-        getDecision()
-        /*Case: playersMove == "Rock" && computersMove == "Scissors"
-        Display, "You won!"
-        store in outcome in result 
-        When player wins store value in playersScore
-        When computer wins, store value in computersScore
-        return either computersScore or playersScore  */      
-           
+       
+
+        /* Need function to iterate 5 times 
+    Use a for loop container for all functions to run the game until best 3 out of 5 wins 
+    Loop should keep and display running score and final score
+        Run 
+            getPlayers
+            getComputers
+            Compare Move 
+        Use for loop to iterate until playerScore || computersScore == 3
+        need function keepScore to accept playerScore and computerScore as parameters
+    When players Score || computersScore reaches 3 loop terminates
+    Loop should keep track of rounds 
+        for each iteration create variable "rounds" and store value
+        increment for every iteration of loop */
+        
+      //  for (i = 0; i < 5; i++) {
+            getPlayers();
+            getComputers();
+            getDecision(playersMove, computersMove);
+        //}*/
                 
         
         
