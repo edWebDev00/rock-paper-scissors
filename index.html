@@ -9,41 +9,45 @@
 <body>
     <script>
 /*Need function getPlayers to get player's move*/
-      /*  function getPlayers () {
+       // function getPlayers () {
 /*Need prompt, "Choose Rock, Paper or Scissors."*/
-           let playersChoice = prompt('Choose Rock, Paper, or scissors','',);
+           //let playersChoice = prompt('Choose Rock, Paper, or scissors','',);
 /*function to make playersMove Case insensitive*/
 /* When player enters string, capitalize first letter, lower case other letters in string*/
-            function caseInsensitive (string) {
-                let newString = string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-                return newString;
+            //function caseInsensitive (string) {
+        //        let newString = string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+         //       return newString;
+        //    }
+ /*store new variable as playersMove */           
+         //   let playersMove = caseInsensitive(playersChoice);
+         //   console.log(`You chose ${playersMove}`);
+        //}
+        //getPlayers();
+//Need function getComputers to get computer's move
+        function getComputers () {
+// Random number generator from 0-2
+            function getRandom (min,max) {
+                return Math.floor(Math.random() * (max - min + 1) + min)
             }
-            
-            let playersMove = caseInsensitive(playersChoice);
-            console.log(`You chose ${playersMove}`);
-  /* console.log(playersMove);
-           /* function to convert other letters to lowercase
-                store string as variable
-                use variable.toLowerCase
-                store as variable 
-
-            function to convert 1st letter in string to capital
-                store string as variable
-                use variable.toUpperCase([0]) method(maybe)
-                store new variable as playersMove */
-            /*if (playersMove == "rock")
-            console.log(`You chose ${playersMove}.`);
-            return playersMove;*/
-      /*  }
+//store in variable called random
+            let random = getRandom (0,2);
+//Convert random number to string, "Rock", "Paper", or "Scissors", store in variable
+            let computersMove ="";
+            if (random == 0) {
+                 computersMove = "Rock";
+            }
+            else if (random == 1) {
+                 computersMove = "Paper";
+            }
+            else {
+                 computersMove = "Scissors";
+            }
+            console.log(computersMove)
+        }  
+        getComputers(); 
+           
+                
         
-   /* getPlayers();
-
-
-
-    
-
-   /* Display Player's move 
-        Display, "You chose ''"*/
         
     </script>
 </body>
