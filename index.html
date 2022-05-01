@@ -22,29 +22,52 @@
          //   let playersMove = caseInsensitive(playersChoice);
          //   console.log(`You chose ${playersMove}`);
         //}
-        //getPlayers();
+       
 //Need function getComputers to get computer's move
-        function getComputers () {
+      //  function getComputers () {
 // Random number generator from 0-2
-            function getRandom (min,max) {
-                return Math.floor(Math.random() * (max - min + 1) + min)
-            }
+          //  function getRandom (min,max) {
+          //      return Math.floor(Math.random() * (max - min + 1) + min)
+          //  }
 //store in variable called random
-            let random = getRandom (0,2);
+           // let random = getRandom (0,2);
 //Convert random number to string, "Rock", "Paper", or "Scissors", store in variable
-            let computersMove ="";
-            if (random == 0) {
-                 computersMove = "Rock";
-            }
-            else if (random == 1) {
-                 computersMove = "Paper";
-            }
-            else {
-                 computersMove = "Scissors";
-            }
-            console.log(computersMove)
-        }  
-        getComputers(); 
+         //   let computersMove ="";
+          //  if (random == 0) {
+            //     computersMove = "Rock";
+          //  }
+         //   else if (random == 1) {
+          //       computersMove = "Paper";
+          //  }
+           // else {
+           //      computersMove = "Scissors";
+           // }
+           // console.log(computersMove)
+      //  }  
+/*Need function compareMove to compare computer's move with player's move*/
+//Switch statement with && operator
+
+            function getDecision () {
+                let playersMove = "Paper";
+                let computersMove = "Rock";
+                if (playersMove == "Paper" && computersMove == "Rock" ||  
+                    playersMove == "Rock" && computersMove == "Scissors"  ||
+                    playersMove == "Scissors" && computersMove == "Paper") {
+                    console.log("You win ");
+
+                    }
+                else {
+                    console.log("You lose")
+                }
+
+           }
+        getDecision()
+        /*Case: playersMove == "Rock" && computersMove == "Scissors"
+        Display, "You won!"
+        store in outcome in result 
+        When player wins store value in playersScore
+        When computer wins, store value in computersScore
+        return either computersScore or playersScore  */      
            
                 
         
