@@ -8,26 +8,45 @@
 </head>
 <body>
     <script>
-        computersMove ="";
+        
         function computerPlay() {
+            let computerSelection;
           function getRandom (min,max) {
                 return Math.floor(Math.random() * (max - min + 1) + min)
             }
             let random = getRandom (0,2);
            
             if (random == 0) {
-                 computersMove = "Rock";
+                 computerSelection = "Rock";
             }
             else if (random == 1) {
-                 computersMove = "Paper";
+                 computerSelection = "Paper";
             }
             else {
-                 computersMove = "Scissors";
+                 computerSelection = "Scissors";
             }
-            console.log(`Computer chose ${computersMove}`);
+            return computerSelection;
         }  
+        let playerSelection = prompt("Choose Rock, Paper, or Scissors","");
+        let computerSelection = computerPlay()
+        function playRound(string1, string2) {
+            if (string1 == "Rock" && string2 == "Scissors" ||
+            string1 == "Paper"  && string2 == "Rock" ||
+            string1 == "Scissors" && string2 == "Paper") {
+            console.log(`You lose, ${string1} beats ${string2}`);
+            }
+            else if (string2 == "Rock" && string1 == "Scissors" ||
+            string2 == "Paper"  && string1 == "Rock" ||
+            string2 == "Scissors" && string1 == "Paper") {
+            console.log(`You win, ${string2} beats ${string1}`);
+            }
+            else {
+            console.log(`It's a draw!`);
+            }
+        }
+
 computerPlay();
-        
-    </script>
+playRound(computerSelection, playerSelection);
+      </script>
 </body>
 </html>
