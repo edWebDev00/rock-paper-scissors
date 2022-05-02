@@ -24,12 +24,10 @@
             else {
             computerSelection = "Scissors";
             }
-            console.log(`Computer chose ${computerSelection}`)
             return computerSelection;
         }  
         
         function playRound(string1, string2) {
-            
             if (string1 == "Rock" && string2 == "Scissors" ||
             string1 == "Paper"  && string2 == "Rock" ||
             string1 == "Scissors" && string2 == "Paper") {
@@ -55,16 +53,18 @@
 
         function game(){
             for (i = 1; i < 6; i++) {
-                let playerSelection = prompt("Choose Rock, Paper, or Scissors","");
-                let computerSelection = computerPlay()
+                playerSelection = prompt("Choose Rock, Paper, or Scissors","");
+                playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
                 console.log(`You chose ${playerSelection}`);
+                let computerSelection = computerPlay()
+                console.log(`Computer chose ${computerSelection}`);
             playRound(computerSelection, playerSelection);
             let round = i;
             console.log(`Round ${i}`);
             console.log(`Score: Computer ${computerScore}, You ${playerScore}`);
             }
         }
-game();
+        game();
       </script>
 </body>
 </html>
