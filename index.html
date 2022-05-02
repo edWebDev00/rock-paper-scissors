@@ -15,38 +15,56 @@
                 return Math.floor(Math.random() * (max - min + 1) + min)
             }
             let random = getRandom (0,2);
-           
-            if (random == 0) {
-                 computerSelection = "Rock";
+            if (random === 0) {
+           computerSelection = "Rock";
             }
-            else if (random == 1) {
-                 computerSelection = "Paper";
+            else if (random === 1) {
+            computerSelection = "Paper";
             }
             else {
-                 computerSelection = "Scissors";
+            computerSelection = "Scissors";
             }
+            console.log(`Computer chose ${computerSelection}`)
             return computerSelection;
         }  
-        let playerSelection = prompt("Choose Rock, Paper, or Scissors","");
-        let computerSelection = computerPlay()
+        
         function playRound(string1, string2) {
+            
             if (string1 == "Rock" && string2 == "Scissors" ||
             string1 == "Paper"  && string2 == "Rock" ||
             string1 == "Scissors" && string2 == "Paper") {
             console.log(`You lose, ${string1} beats ${string2}`);
+            computerScore++;
+            return computerScore;
             }
             else if (string2 == "Rock" && string1 == "Scissors" ||
             string2 == "Paper"  && string1 == "Rock" ||
             string2 == "Scissors" && string1 == "Paper") {
             console.log(`You win, ${string2} beats ${string1}`);
+            playerScore++;
+            return playerScore;
             }
             else {
             console.log(`It's a draw!`);
             }
         }
+        let playerSelection;
+        let computerSelection;
+        let playerScore = 0;
+        let computerScore = 0;
 
-computerPlay();
-playRound(computerSelection, playerSelection);
+        function game(){
+            for (i = 1; i < 6; i++) {
+                let playerSelection = prompt("Choose Rock, Paper, or Scissors","");
+                let computerSelection = computerPlay()
+                console.log(`You chose ${playerSelection}`);
+            playRound(computerSelection, playerSelection);
+            let round = i;
+            console.log(`Round ${i}`);
+            console.log(`Score: Computer ${computerScore}, You ${playerScore}`);
+            }
+        }
+game();
       </script>
 </body>
 </html>
