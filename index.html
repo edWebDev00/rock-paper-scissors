@@ -8,63 +8,92 @@
 </head>
 <body>
     <script>
-        
+//This function geerates the computer's choice randomly and assigns its numner choice tpo a string       
         function computerPlay() {
-            let computerSelection;
           function getRandom (min,max) {
                 return Math.floor(Math.random() * (max - min + 1) + min)
             }
             let random = getRandom (0,2);
             if (random === 0) {
-           computerSelection = "Rock";
+            computerSelection = "Rock";
             }
             else if (random === 1) {
             computerSelection = "Paper";
             }
-            else {
+            else  {
             computerSelection = "Scissors";
             }
             return computerSelection;
         }  
-        
-        function playRound(string1, string2) {
-            if (string1 == "Rock" && string2 == "Scissors" ||
-            string1 == "Paper"  && string2 == "Rock" ||
-            string1 == "Scissors" && string2 == "Paper") {
-            console.log(`You lose, ${string1} beats ${string2}`);
-            computerScore++;
-            return computerScore;
+// This function plays one round, compares the player and computer strings, returns the winner and keeps score
+        function playRound(string1, string2)     {
+            if (string1 === "Rock" && string2 === "Scissors" ||
+            string1 === "Paper"  && string2 === "Rock" ||
+            string1 === "Scissors" && string2 === "Paper") {
+            computerTotal++;
+            result = 1;
+            return result;
+            
             }
-            else if (string2 == "Rock" && string1 == "Scissors" ||
-            string2 == "Paper"  && string1 == "Rock" ||
-            string2 == "Scissors" && string1 == "Paper") {
-            console.log(`You win, ${string2} beats ${string1}`);
-            playerScore++;
-            return playerScore;
+            else if (string2 === "Rock" && string1 === "Scissors" ||
+            string2 === "Paper"  && string1 === "Rock" ||
+            string2 === "Scissors" && string1 === "Paper") {
+            playerTotal++;
+            result = 2;
+            return result;
             }
             else {
-            console.log(`It's a draw!`);
+                result = 0;
+                return result 
             }
+            
+            
         }
+
         let playerSelection;
         let computerSelection;
-        let playerScore = 0;
-        let computerScore = 0;
+        let result = 0
+        let string2;
+        let string1;
+        let playerTotal = 0;
+        let computerTotal = 0;
+
 
         function game(){
             for (i = 1; i < 6; i++) {
                 playerSelection = prompt("Choose Rock, Paper, or Scissors","");
+                    if (playerSelection == null) {
+                        console.log("Okay, see ya")
+                        return;
+                    }
                 playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+                computerSelection = computerPlay()
+                playRound(computerSelection, playerSelection);
+                let round = i;
+                console.log(`Round ${i}`);
                 console.log(`You chose ${playerSelection}`);
-                let computerSelection = computerPlay()
                 console.log(`Computer chose ${computerSelection}`);
-            playRound(computerSelection, playerSelection);
-            let round = i;
-            console.log(`Round ${i}`);
-            console.log(`Score: Computer ${computerScore}, You ${playerScore}`);
+                    if (result == 2  ) {
+                    console.log(`You win this round, ${playerSelection} beats ${computerSelection}`);
+                    }
+                    else if ( result == 1  ) {
+                    console.log(`You lose this round, ${computerSelection} beats ${playerSelection}`);
+                    }
+                    else {
+                    console.log(`It's a draw!`);
+                    }
+                console.log(`Score: Computer ${computerTotal}, You ${playerTotal}`);
+                
             }
         }
         game();
+        if (computerTotal > playerTotal){
+            console.log("You win")
+        }
+        else {
+            console.log("You suck")
+        }
+        
       </script>
 </body>
 </html>
