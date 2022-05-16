@@ -87,11 +87,14 @@
             }
         }
         game();
-        if (computerTotal > playerTotal){
+        if (computerTotal < playerTotal){
             console.log("You win")
         }
-        else {
+        else if (computerTotal > playerTotal) {
             console.log("You suck")
+        }
+        else {
+            console.log("Meh!")
         }
         
       </script>
