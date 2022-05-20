@@ -1,6 +1,6 @@
 
 body {
-    background-color: #091833;
+    background-color: #3a4a93;
     
 }
 h1 {
@@ -10,7 +10,7 @@ h1 {
 #container {
     width: 75%;
     height:700px;
-    background-image: url(game.jpg);
+    background-color: #5c58b6;
     background-size: cover;
     margin:auto;
     display: flex;
@@ -30,8 +30,9 @@ h1 {
     height: 100px;
     font-size: 18px;
     font-weight: bolder;
-    background-color: #ea00d9;
-    color: #133e7c;
+    font-weight: bolder;
+    background-color: #5994ce;
+    color: #b957ce;
 }
 #button-container{
     display: flex;
@@ -54,7 +55,7 @@ h1 {
     font-size: 30px;
     font-family: monospace;
     font-weight: bolder;
-    color: #0abdc6;
+    color: #b957ce;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
